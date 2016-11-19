@@ -11,34 +11,32 @@
 
     <!-- Yandex speechKit -->
     <script src="https://webasr.yandex.net/jsapi/v1/webspeechkit.js" type="text/javascript"></script>
+    <script src="https://webasr.yandex.net/jsapi/v1/webspeechkit-settings.js" type="text/javascript"></script>
     <script>
-      // window.onload = function() {
-      //   var tts = ya.speechkit.Tts(
-      //     {
-      //       apikey: '3620d52f-2b18-462d-8f16-16cc24fd2776',
-      //       speaker: 'jane',
-      //       emotion: 'evil',
-      //       gender: 'female'
-      //     });
-      //     tts.speak('Weathre & Health');
-      // };
+      // global settings
+      window.ya.speechkit.settings.lang = 'ru-RU';
+      window.ya.speechkit.settings.apikey = '3620d52f-2b18-462d-8f16-16cc24fd2776';
 
+      // behavior logic
       window.onload = function() {
-        ya.speechkit.recognize({
-          doneCallback: function (text) {
-            console.log("You've said: " + text);
+        var recognizer = ya.speechkit.Recognizer({
+          onInit: function() {
+            console.log("init");
           },
-          initCallback: function () {
-            console.log("You may speak now");
+          onResult: function(text) {
+            console.log(text);
           },
-          errorCallback: function (err) {
-            console.log("Something gone wrong: " + err);
+          onError: function(msg) {
+            console.log(msg);
           },
-          apikey: '3620d52f-2b18-462d-8f16-16cc24fd2776',
-          model: 'freeform', // Model name for recognition process
-          lang: 'ru-RU' //Language for recognition process
+          format: ya.speechkit.FORMAT.PCM16
         });
       };
+      recognizer.start({
+        dataCallback: function(text) {
+          console.log(text);
+        }
+      });
     </script>
 
     <title>HW</title>
