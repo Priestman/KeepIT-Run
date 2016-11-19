@@ -69,23 +69,25 @@
         <div class="col-sm-6">
           <div class="panel panel-default">
             <div class="panel-body">
-              <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">Ваш возраст</span>
-                <input type="text" class="form-control" placeholder="Число" aria-describedby="basic-addon1">
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="coef" value="1.0">Не реагирую на погоду</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="coef" value="0.9">Иногда реагирую на погоду</label>
-              </div>
-              <div class="radio disabled">
-                <label><input type="radio" name="coef" value="0.8">Часто реагирую на погоду</label>
-              </div>
-              <div class="radio disabled">
-                <label><input type="radio" name="coef" value="0.7">Всегда реагирую на погоду</label>
-              </div>
-              <input type="submit" class="btn btn-info" value="Отправить">
+              <form action="calc-php" method="post" enctype="multipart/form-data">
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">Ваш возраст</span>
+                  <input type="text" class="form-control" placeholder="Число" aria-describedby="basic-addon1">
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="ratio" value="1.0">Не реагирую на погоду</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="ratio" value="0.9">Иногда реагирую на погоду</label>
+                </div>
+                <div class="radio disabled">
+                  <label><input type="radio" name="ratio" value="0.8">Часто реагирую на погоду</label>
+                </div>
+                <div class="radio disabled">
+                  <label><input type="radio" name="ratio" value="0.7">Всегда реагирую на погоду</label>
+                </div>
+                <input type="submit" class="btn btn-info" value="Отправить">
+              </form>
             </div>
           </div>
         </div>
