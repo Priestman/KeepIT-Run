@@ -19,24 +19,63 @@
 
       // behavior logic
       window.onload = function() {
-        var recognizer = ya.speechkit.Recognizer({
-          onInit: function() {
-            console.log("init");
-          },
-          onResult: function(text) {
-            console.log(text);
-          },
-          onError: function(msg) {
-            console.log(msg);
-          },
-          format: ya.speechkit.FORMAT.PCM16
+        function done(text) {
+          console.log("You've said: '" + text + "'");
+          if (text.includes('сегодня'))
+            tts.speak(
+              'Рекомендуем перенести работу на дом, пить чай под пледом, гладить кота и смотреть хорошее кино. Постскриптум: хотя это вам нифига не поможет.',
+              {
+                stopCallback: function() {
+                  ya.speechkit.recognize({
+                    doneCallback: done,
+                    initCallback: init,
+                    errorCallback: err,
+                    model: 'freeform'
+                  });
+                }
+              }
+            );
+          else if (text == 'Лимонада')
+          tts.speak(
+            'Давай, до свидания.',
+            {
+              stopCallback: function() {
+                ya.speechkit.recognize({
+                  doneCallback: done,
+                  initCallback: init,
+                  errorCallback: err,
+                  model: 'freeform'
+                });
+              }
+            }
+          );
+        }
+        function init() {
+          console.log("You may speak now");
+        }
+        function err(err) {
+          console.log("Something gone wrong: " + err);
+        }
+
+        // synthesis
+        var tts = ya.speechkit.Tts(
+          {
+            speaker: 'jane',
+            emotion: 'evil',
+            gender: 'female'
+          });
+        tts.speak(
+          'Хай!', {
+          stopCallback: function() {
+            ya.speechkit.recognize({
+              doneCallback: done,
+              initCallback: init,
+              errorCallback: err,
+              model: 'freeform' // Model name for recognition process
+            });
+          }
         });
       };
-      recognizer.start({
-        dataCallback: function(text) {
-          console.log(text);
-        }
-      });
     </script>
 
     <title>HW</title>
