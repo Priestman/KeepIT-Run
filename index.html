@@ -62,8 +62,9 @@
 
       <div class="row">
         <div class="col-sm-6">
-          <p class="lead">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <p class="lead" style="font-size: 11pt; background:url(img/download.jpg);">
+            Это только в песне красиво поется: «…каждая погода – благодать». А в реальности очень непросто воспринимать все природные перепады позитивно. И дело не только в том, что капризы погоды доставляют нам какие-то некомфортности: в дождь – мокро и сыро, в мороз – холодно, а в зной – душно и жарко. 
+            О погоде люди судят по собственному опыту – по тому, как она влияет на их здоровье, самочувствие,  работоспособность. Влияние погоды и других внешних факторов часто бывает недооценено, но все эти вроде бы незначительные по отдельности изменения в совокупности оказывают значительное влияние. В частности, одно из главных желаний человека вне зависимости от его социального статуса, пола, возраста и т.п. - это быть красивым, показать себя в выгодном свете. Многие современные методики, огромное количество рекомендаций по тому, как улучшить свою физическую форму, социальные приложения основаны как раз на этом - на желании человека тем или иным способом показать себя в выгодном свете. И желательно сделать это без усилий. Многим, наверное, знакомо это утреннее состояние - когда вроде бы и выспался, вроде все хорошо - а идти, например, в зал не хочется от слова "совсем". В этом поможет данное приложение - спланировать свой день так, чтобы обеспечить Вам комфортное совершенствование себя.
           </p>
         </div>
         <div class="col-sm-6">
@@ -71,8 +72,19 @@
             <div class="panel-body">
               <form action="calc.php" method="post" enctype="multipart/form-data">
                 <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1">Ваш возраст</span>
-                  <input type="text" class="form-control" placeholder="Число" aria-describedby="basic-addon1">
+                  <span class="input-group-addon" id="basic-addon1">Date of birth</span>
+                  <input type="text" class="form-control" placeholder="d.m.y" aria-describedby="basic-addon1">
+
+                  <span class="input-group-addon" id="basic-addon1">Your goal</span>
+                  <input type="text" class="form-control" placeholder="Awesome mood!" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">Your job</span>
+                  <input type="text" class="form-control" placeholder="Artist, developer..." aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">Lifestyle</span>
+                  <input type="text" class="form-control" placeholder="Active or sedentary or smth else..." aria-describedby="basic-addon1">
                 </div>
                 <div class="radio">
                   <label><input type="radio" name="ratio" value="1.0">Не реагирую на погоду</label>
