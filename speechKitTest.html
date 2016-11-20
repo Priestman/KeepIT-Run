@@ -21,7 +21,7 @@
       window.onload = function() {
         function done(text) {
           console.log("You've said: '" + text + "'");
-          if (text.includes('сегодня'))
+          if (text.includes('сегодня') || text.includes('воскресень') || text.includes('Сегодня') || text.includes('Воскресень'))
             tts.speak(
               'Рекомендуем перенести работу на дом, пить чай под пледом, гладить кота и смотреть хорошее кино. Постскриптум: хотя это вам нифига не поможет.',
               {
@@ -35,20 +35,26 @@
                 }
               }
             );
-          else if (text == 'Лимонада')
-          tts.speak(
-            'Давай, до свидания.',
-            {
-              stopCallback: function() {
-                ya.speechkit.recognize({
-                  doneCallback: done,
-                  initCallback: init,
-                  errorCallback: err,
-                  model: 'freeform'
-                });
+          else if (text.includes('понедельник') || text.includes('вторник') || text.includes('сред') || text.includes('четверг') || text.includes('пятниц') || text.includes('суббот') || text.includes('Понедельник') || text.includes('Вторник') || text.includes('Сред') || text.includes('Четверг') || text.includes('Пятниц') || text.includes('Суббот'))
+            tts.speak(
+              'Отличный день для новых начинаний!',
+              {
+                stopCallback: function() {
+                  ya.speechkit.recognize({
+                    doneCallback: done,
+                    initCallback: init,
+                    errorCallback: err,
+                    model: 'freeform'
+                  });
+                }
               }
-            }
-          );
+            );
+          else if (text == '') {
+            console.log('empty string recognized');
+          }
+          else {
+            tts.speak('Пока!');
+          }
         }
         function init() {
           console.log("You may speak now");
@@ -111,7 +117,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Health & Weather</a>
+          <a class="navbar-brand" href="index.html">Health & Weather</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
